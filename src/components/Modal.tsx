@@ -8,6 +8,8 @@ import {
   Stack,
 } from "@mantine/core";
 
+import { useDisclosure } from '@mantine/hooks';
+
 type AddExpenseModalProps = {
   opened: boolean;
   onClose: () => void;
@@ -29,7 +31,15 @@ export default function AddExpenseModal({}: AddExpenseModalProps) {
   let val_number: number = Number("500.0");
   console.log(val_number + 100); // 600.0
 
-  return {
+
+  const [opened, { open, close }] = useDisclosure(false);
+  
+  return (
     /* Type additional text here. */
-  };
+
+      <Modal opened={opened} onClose={close} title="Authentication" centered>
+        {/* Modal content */}
+      </Modal>
+
+  );
 }
